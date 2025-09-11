@@ -1,4 +1,4 @@
-font {{font.normal.family}} {{font.normal.size}}
+font pango:{{font.normal.family}} {{font.normal.style}} {{font.normal.size}}
 
 gaps inner {{gaps.inner}}
 gaps outer {{gaps.outer}}
@@ -10,8 +10,8 @@ for_window [class=.*] border pixel {{border.width}}
 
 set $active {{border.active}}
 set $inactive {{border.inactive}}
-set $active.ind {{border.active.alt}}
-set $inactive.ind {{border.inactive.alt}}
+set $active.ind {{border.active.adjusted(sat="-5", val="-5")}}
+set $inactive.ind {{border.inactive.adjusted(sat="-5", val="-5")}}
 
 # class                 border  backgr. text    indicator child_border
 client.focused          $active #285577 #ffffff $active.ind   $active
@@ -29,7 +29,7 @@ bar {
         statusline {{bar.fg}}
         separator {{border.inactive}}
 
-        focused_workspace  {{accent.bg.alt}} {{accent.bg}} {{accent.fg}}
+        focused_workspace  {{accent.bg.adjusted(sat="-5", val="-5")}} {{accent.bg}} {{accent.fg}}
         active_workspace   #333333 #5f676a #ffffff
         inactive_workspace #333333 #222222 #888888
         urgent_workspace   #2f343a #900000 #ffffff
